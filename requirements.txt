@@ -1,0 +1,9 @@
+pandas
+numpy
+duckdb
+pyarrow
+scikit-learn
+statsmodels
+mlxtend
+matplotlib
+ipykernel

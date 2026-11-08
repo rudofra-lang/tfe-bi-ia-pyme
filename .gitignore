@@ -1,0 +1,15 @@
+# Datos de la empresa: confidenciales, no se publican (ver README)
+datos_recibidos/
+fuentes_externas/
+plata/
+oro/
+auditoria/
+restringido/
+ml/resultados/
+ml/informes/
+*.duckdb
+*.parquet
+# Entorno
+__pycache__/
+.ipynb_checkpoints/
+.venv/

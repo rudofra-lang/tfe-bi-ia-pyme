@@ -1,0 +1,144 @@
+TABLA,DESCRIPCION_TABLA,COLUMNA,TIPO,DESCRIPCION,CLAVE
+dim_fecha,Calendario con feriados nacionales de Peru. Una fila por dia.,fecha_key,int64,Clave AAAAMMDD; -1 = sin fecha,PK
+dim_fecha,Calendario con feriados nacionales de Peru. Una fila por dia.,fecha,object,Fecha (aaaa-mm-dd),
+dim_fecha,Calendario con feriados nacionales de Peru. Una fila por dia.,anio,int64,Ano,
+dim_fecha,Calendario con feriados nacionales de Peru. Una fila por dia.,trimestre,int64,Trimestre (1-4),
+dim_fecha,Calendario con feriados nacionales de Peru. Una fila por dia.,mes,int64,Mes (1-12),
+dim_fecha,Calendario con feriados nacionales de Peru. Una fila por dia.,nombre_mes,object,Nombre del mes,
+dim_fecha,Calendario con feriados nacionales de Peru. Una fila por dia.,anio_mes,object,Ano y mes (aaaa-mm),
+dim_fecha,Calendario con feriados nacionales de Peru. Una fila por dia.,semana_iso,int64,Semana ISO,
+dim_fecha,Calendario con feriados nacionales de Peru. Una fila por dia.,dia_mes,int64,Dia del mes,
+dim_fecha,Calendario con feriados nacionales de Peru. Una fila por dia.,dia_semana,int64,Dia de la semana (1 = lunes),
+dim_fecha,Calendario con feriados nacionales de Peru. Una fila por dia.,nombre_dia,object,Nombre del dia,
+dim_fecha,Calendario con feriados nacionales de Peru. Una fila por dia.,es_feriado,bool,Feriado nacional,
+dim_fecha,Calendario con feriados nacionales de Peru. Una fila por dia.,nombre_feriado,object,Nombre del feriado,
+dim_fecha,Calendario con feriados nacionales de Peru. Una fila por dia.,es_laborable,bool,"Dia de atencion (lunes a sabado, no feriado)",
+dim_cliente,Clientes. Dimension lentamente cambiante de tipo 2: una fila por version. Las personas fisicas estan seudonimizadas.,cliente_key,int64,Clave subrogada (una por version),PK
+dim_cliente,Clientes. Dimension lentamente cambiante de tipo 2: una fila por version. Las personas fisicas estan seudonimizadas.,cliente_id,object,RUC de empresa o seudonimo PN-... de persona,
+dim_cliente,Clientes. Dimension lentamente cambiante de tipo 2: una fila por version. Las personas fisicas estan seudonimizadas.,nombre,object,Razon social (empresas) o seudonimo (personas),
+dim_cliente,Clientes. Dimension lentamente cambiante de tipo 2: una fila por version. Las personas fisicas estan seudonimizadas.,tipo_documento_id,object,RUC o DNI,
+dim_cliente,Clientes. Dimension lentamente cambiante de tipo 2: una fila por version. Las personas fisicas estan seudonimizadas.,tipo_cliente,object,"EMPRESA, PERSONA CON NEGOCIO o PERSONA NATURAL",
+dim_cliente,Clientes. Dimension lentamente cambiante de tipo 2: una fila por version. Las personas fisicas estan seudonimizadas.,sector,object,Sector de actividad,
+dim_cliente,Clientes. Dimension lentamente cambiante de tipo 2: una fila por version. Las personas fisicas estan seudonimizadas.,departamento,object,Departamento (SIN DATO si se desconoce),
+dim_cliente,Clientes. Dimension lentamente cambiante de tipo 2: una fila por version. Las personas fisicas estan seudonimizadas.,provincia,object,Provincia (SIN DATO si se desconoce),
+dim_cliente,Clientes. Dimension lentamente cambiante de tipo 2: una fila por version. Las personas fisicas estan seudonimizadas.,condicion_credito,object,Condicion de credito concedida,
+dim_cliente,Clientes. Dimension lentamente cambiante de tipo 2: una fila por version. Las personas fisicas estan seudonimizadas.,agente_retencion,object,SI si el cliente es agente de retencion del IGV,
+dim_cliente,Clientes. Dimension lentamente cambiante de tipo 2: una fila por version. Las personas fisicas estan seudonimizadas.,vendedor_asignado,object,Codigo del vendedor que lleva la cuenta,
+dim_cliente,Clientes. Dimension lentamente cambiante de tipo 2: una fila por version. Las personas fisicas estan seudonimizadas.,fecha_alta,object,Fecha de alta como cliente,
+dim_cliente,Clientes. Dimension lentamente cambiante de tipo 2: una fila por version. Las personas fisicas estan seudonimizadas.,version,int64,Numero de version del cliente,
+dim_cliente,Clientes. Dimension lentamente cambiante de tipo 2: una fila por version. Las personas fisicas estan seudonimizadas.,vigente_desde,object,Inicio de vigencia de esta version,
+dim_cliente,Clientes. Dimension lentamente cambiante de tipo 2: una fila por version. Las personas fisicas estan seudonimizadas.,vigente_hasta,object,Fin de vigencia (9999-12-31 = vigente),
+dim_cliente,Clientes. Dimension lentamente cambiante de tipo 2: una fila por version. Las personas fisicas estan seudonimizadas.,es_actual,bool,Version vigente,
+dim_producto,Catalogo de productos y servicios.,producto_key,int64,Clave subrogada,PK
+dim_producto,Catalogo de productos y servicios.,codigo_producto,object,Codigo del sistema (PRD-0000),
+dim_producto,Catalogo de productos y servicios.,descripcion,object,Descripcion,
+dim_producto,Catalogo de productos y servicios.,familia,object,Familia del catalogo (16),
+dim_producto,Catalogo de productos y servicios.,linea_negocio,object,"VENTA DE MATERIALES, SERVICIOS o ALQUILER",
+dim_producto,Catalogo de productos y servicios.,marca,object,Marca,
+dim_producto,Catalogo de productos y servicios.,origen,object,NACIONAL o IMPORTADO,
+dim_producto,Catalogo de productos y servicios.,precio_lista_pen,float64,Precio de lista sin IGV en soles,
+dim_vendedor,Vendedores (seudonimizados) y canal de mostrador.,vendedor_key,int64,Clave subrogada,PK
+dim_vendedor,Vendedores (seudonimizados) y canal de mostrador.,vendedor_codigo,object,VEN-nn o MOSTRADOR,
+dim_vendedor,Vendedores (seudonimizados) y canal de mostrador.,tipo_canal,object,VENDEDOR o MOSTRADOR,
+dim_vendedor,Vendedores (seudonimizados) y canal de mostrador.,primera_venta,object,Fecha de su primera venta,
+dim_vendedor,Vendedores (seudonimizados) y canal de mostrador.,ultima_venta,object,Fecha de su ultima venta,
+dim_vendedor,Vendedores (seudonimizados) y canal de mostrador.,activo_al_corte,bool,Ha vendido en los 60 dias anteriores al cierre de los datos,
+dim_usuario,Personal que emite los documentos (seudonimizado).,usuario_key,int64,Clave subrogada,PK
+dim_usuario,Personal que emite los documentos (seudonimizado).,usuario_codigo,object,USR-nn,
+dim_moneda,Monedas.,moneda_key,int64,Clave,PK
+dim_moneda,Monedas.,codigo_iso,object,Codigo ISO 4217,
+dim_moneda,Monedas.,nombre,object,Nombre,
+dim_moneda,Monedas.,simbolo,object,Simbolo,
+dim_tipo_documento,Tipos de documento comercial.,tipo_documento_key,int64,Clave,PK
+dim_tipo_documento,Tipos de documento comercial.,tipo_documento,object,"FACTURA, BOLETA, NOTA DE CREDITO o PROFORMA",
+dim_tipo_documento,Tipos de documento comercial.,series,object,Series usadas,
+dim_tipo_documento,Tipos de documento comercial.,es_comprobante_sunat,bool,Comprobante de pago electronico,
+dim_tipo_documento,Tipos de documento comercial.,signo,int64,"1 suma ventas, -1 resta, 0 sin efecto",
+dim_tipo_documento,Tipos de documento comercial.,descripcion,object,Descripcion,
+dim_condicion_pago,Condiciones de pago.,condicion_pago_key,int64,Clave,PK
+dim_condicion_pago,Condiciones de pago.,condicion_pago,object,CONTADO o n DIAS,
+dim_condicion_pago,Condiciones de pago.,dias_credito,int64,Dias de credito,
+dim_condicion_pago,Condiciones de pago.,es_credito,bool,Venta a credito,
+dim_forma_pago,Medios de cobro.,forma_pago_key,int64,Clave,PK
+dim_forma_pago,Medios de cobro.,medio_pago,object,Medio de pago normalizado,
+dim_forma_pago,Medios de cobro.,categoria,object,"EFECTIVO, TRANSFERENCIA, BILLETERA DIGITAL, TARJETA, CHEQUE o TRIBUTARIO",
+dim_forma_pago,Medios de cobro.,entra_en_caja,bool,FALSE para detracciones y retenciones (no llegan a la cuenta de la empresa),
+dim_estado_proforma,Estado de la proforma derivado en la capa plata.,estado_proforma_key,int64,Clave,PK
+dim_estado_proforma,Estado de la proforma derivado en la capa plata.,estado,object,"ABIERTA, CERRADA, VENCIDA o RECHAZADA",
+dim_estado_proforma,Estado de la proforma derivado en la capa plata.,es_resuelta,bool,Ya no esta abierta,
+dim_estado_proforma,Estado de la proforma derivado en la capa plata.,es_ganada,bool,Termino en venta,
+dim_estado_proforma,Estado de la proforma derivado en la capa plata.,descripcion,object,Descripcion,
+fact_ventas,"Ventas. Grano: una linea de comprobante aceptado (factura, boleta o nota de credito). Las notas de credito restan.",venta_linea_id,int64,Identificador de la fila,
+fact_ventas,"Ventas. Grano: una linea de comprobante aceptado (factura, boleta o nota de credito). Las notas de credito restan.",fecha_emision_key,int64,Fecha de emision,FK
+fact_ventas,"Ventas. Grano: una linea de comprobante aceptado (factura, boleta o nota de credito). Las notas de credito restan.",fecha_vencimiento_key,int64,Fecha de vencimiento,FK
+fact_ventas,"Ventas. Grano: una linea de comprobante aceptado (factura, boleta o nota de credito). Las notas de credito restan.",cliente_key,int64,Cliente (version vigente en la fecha),FK
+fact_ventas,"Ventas. Grano: una linea de comprobante aceptado (factura, boleta o nota de credito). Las notas de credito restan.",producto_key,int64,Producto,FK
+fact_ventas,"Ventas. Grano: una linea de comprobante aceptado (factura, boleta o nota de credito). Las notas de credito restan.",vendedor_key,int64,Vendedor,FK
+fact_ventas,"Ventas. Grano: una linea de comprobante aceptado (factura, boleta o nota de credito). Las notas de credito restan.",usuario_key,int64,Usuario emisor,FK
+fact_ventas,"Ventas. Grano: una linea de comprobante aceptado (factura, boleta o nota de credito). Las notas de credito restan.",moneda_key,int64,Moneda del documento,FK
+fact_ventas,"Ventas. Grano: una linea de comprobante aceptado (factura, boleta o nota de credito). Las notas de credito restan.",tipo_documento_key,int64,Tipo de documento,FK
+fact_ventas,"Ventas. Grano: una linea de comprobante aceptado (factura, boleta o nota de credito). Las notas de credito restan.",condicion_pago_key,int64,Condicion de pago,FK
+fact_ventas,"Ventas. Grano: una linea de comprobante aceptado (factura, boleta o nota de credito). Las notas de credito restan.",serie,object,Serie del comprobante,
+fact_ventas,"Ventas. Grano: una linea de comprobante aceptado (factura, boleta o nota de credito). Las notas de credito restan.",numero,int64,Numero del comprobante,
+fact_ventas,"Ventas. Grano: una linea de comprobante aceptado (factura, boleta o nota de credito). Las notas de credito restan.",item,int64,Linea dentro del comprobante,
+fact_ventas,"Ventas. Grano: una linea de comprobante aceptado (factura, boleta o nota de credito). Las notas de credito restan.",num_proforma,object,Proforma de origen (vacio si es venta directa),
+fact_ventas,"Ventas. Grano: una linea de comprobante aceptado (factura, boleta o nota de credito). Las notas de credito restan.",documento_referencia,object,Comprobante que corrige la nota de credito,
+fact_ventas,"Ventas. Grano: una linea de comprobante aceptado (factura, boleta o nota de credito). Las notas de credito restan.",motivo_nc,object,Motivo de la nota de credito,
+fact_ventas,"Ventas. Grano: una linea de comprobante aceptado (factura, boleta o nota de credito). Las notas de credito restan.",cantidad,int64,Unidades netas (las notas de credito de precio no devuelven unidades),
+fact_ventas,"Ventas. Grano: una linea de comprobante aceptado (factura, boleta o nota de credito). Las notas de credito restan.",precio_unitario_doc,float64,Precio unitario sin IGV en la moneda del documento,
+fact_ventas,"Ventas. Grano: una linea de comprobante aceptado (factura, boleta o nota de credito). Las notas de credito restan.",importe_neto_doc,float64,Importe sin IGV en la moneda del documento (con signo),
+fact_ventas,"Ventas. Grano: una linea de comprobante aceptado (factura, boleta o nota de credito). Las notas de credito restan.",tipo_cambio,float64,Soles por dolar aplicado (1 en PEN),
+fact_ventas,"Ventas. Grano: una linea de comprobante aceptado (factura, boleta o nota de credito). Las notas de credito restan.",descuento_pen,float64,Descuento en soles,
+fact_ventas,"Ventas. Grano: una linea de comprobante aceptado (factura, boleta o nota de credito). Las notas de credito restan.",importe_neto_pen,float64,Importe sin IGV en soles (con signo),
+fact_ventas,"Ventas. Grano: una linea de comprobante aceptado (factura, boleta o nota de credito). Las notas de credito restan.",igv_doc,float64,"IGV de la cabecera repartido por lineas, en la moneda del documento",
+fact_ventas,"Ventas. Grano: una linea de comprobante aceptado (factura, boleta o nota de credito). Las notas de credito restan.",igv_pen,float64,"IGV de la cabecera repartido por lineas, en soles",
+fact_ventas,"Ventas. Grano: una linea de comprobante aceptado (factura, boleta o nota de credito). Las notas de credito restan.",coste_pen,float64,Coste de la mercaderia en soles,
+fact_ventas,"Ventas. Grano: una linea de comprobante aceptado (factura, boleta o nota de credito). Las notas de credito restan.",margen_pen,float64,"Importe neto menos coste, en soles",
+fact_proformas,Proformas. Grano: una linea de proforma.,proforma_linea_id,int64,Identificador de la fila,
+fact_proformas,Proformas. Grano: una linea de proforma.,fecha_emision_key,int64,Fecha de emision,FK
+fact_proformas,Proformas. Grano: una linea de proforma.,fecha_validez_key,int64,Fecha de validez,FK
+fact_proformas,Proformas. Grano: una linea de proforma.,cliente_key,int64,Cliente,FK
+fact_proformas,Proformas. Grano: una linea de proforma.,producto_key,int64,Producto,FK
+fact_proformas,Proformas. Grano: una linea de proforma.,vendedor_key,int64,Vendedor,FK
+fact_proformas,Proformas. Grano: una linea de proforma.,usuario_key,int64,Usuario emisor,FK
+fact_proformas,Proformas. Grano: una linea de proforma.,moneda_key,int64,Moneda,FK
+fact_proformas,Proformas. Grano: una linea de proforma.,estado_proforma_key,int64,Estado,FK
+fact_proformas,Proformas. Grano: una linea de proforma.,num_proforma,int64,Numero de proforma,
+fact_proformas,Proformas. Grano: una linea de proforma.,item,int64,Linea,
+fact_proformas,Proformas. Grano: una linea de proforma.,cantidad,int64,Unidades ofertadas,
+fact_proformas,Proformas. Grano: una linea de proforma.,precio_unitario_doc,float64,Precio unitario sin IGV,
+fact_proformas,Proformas. Grano: una linea de proforma.,importe_ofertado_doc,float64,Importe sin IGV en la moneda de la proforma,
+fact_proformas,Proformas. Grano: una linea de proforma.,tipo_cambio,float64,Soles por dolar aplicado,
+fact_proformas,Proformas. Grano: una linea de proforma.,importe_ofertado_pen,float64,Importe sin IGV en soles,
+fact_proformas,Proformas. Grano: una linea de proforma.,coste_pen,float64,Coste estimado en soles,
+fact_embudo_proforma,"Embudo comercial. Grano: una proforma, seguida hasta su primera venta (instantanea acumulativa).",num_proforma,int64,Numero de proforma,
+fact_embudo_proforma,"Embudo comercial. Grano: una proforma, seguida hasta su primera venta (instantanea acumulativa).",fecha_emision_key,int64,Fecha de emision,FK
+fact_embudo_proforma,"Embudo comercial. Grano: una proforma, seguida hasta su primera venta (instantanea acumulativa).",fecha_validez_key,int64,Fecha de validez,FK
+fact_embudo_proforma,"Embudo comercial. Grano: una proforma, seguida hasta su primera venta (instantanea acumulativa).",fecha_primera_venta_key,int64,Fecha de la primera venta (-1 si no se vendio),FK
+fact_embudo_proforma,"Embudo comercial. Grano: una proforma, seguida hasta su primera venta (instantanea acumulativa).",cliente_key,int64,Cliente,FK
+fact_embudo_proforma,"Embudo comercial. Grano: una proforma, seguida hasta su primera venta (instantanea acumulativa).",vendedor_key,int64,Vendedor,FK
+fact_embudo_proforma,"Embudo comercial. Grano: una proforma, seguida hasta su primera venta (instantanea acumulativa).",moneda_key,int64,Moneda,FK
+fact_embudo_proforma,"Embudo comercial. Grano: una proforma, seguida hasta su primera venta (instantanea acumulativa).",estado_proforma_key,int64,Estado,FK
+fact_embudo_proforma,"Embudo comercial. Grano: una proforma, seguida hasta su primera venta (instantanea acumulativa).",convertida,int64,1 si termino en venta,
+fact_embudo_proforma,"Embudo comercial. Grano: una proforma, seguida hasta su primera venta (instantanea acumulativa).",dias_hasta_venta,Int64,Dias entre la proforma y la primera venta,
+fact_embudo_proforma,"Embudo comercial. Grano: una proforma, seguida hasta su primera venta (instantanea acumulativa).",n_comprobantes,int64,Comprobantes emitidos a partir de ella,
+fact_embudo_proforma,"Embudo comercial. Grano: una proforma, seguida hasta su primera venta (instantanea acumulativa).",importe_ofertado_pen,float64,Importe ofertado sin IGV en soles,
+fact_embudo_proforma,"Embudo comercial. Grano: una proforma, seguida hasta su primera venta (instantanea acumulativa).",importe_facturado_pen,float64,Importe facturado sin IGV en soles,
+fact_embudo_proforma,"Embudo comercial. Grano: una proforma, seguida hasta su primera venta (instantanea acumulativa).",pendiente_revision,bool,Cerrada sin venta localizada; revisar con la empresa,
+fact_cobros,"Cobros. Grano: un movimiento (cobro, detraccion o retencion).",cobro_id,object,Identificador del cobro,
+fact_cobros,"Cobros. Grano: un movimiento (cobro, detraccion o retencion).",fecha_cobro_key,int64,Fecha del cobro,FK
+fact_cobros,"Cobros. Grano: un movimiento (cobro, detraccion o retencion).",fecha_emision_doc_key,int64,Emision del comprobante cobrado,FK
+fact_cobros,"Cobros. Grano: un movimiento (cobro, detraccion o retencion).",fecha_vencimiento_doc_key,int64,Vencimiento del comprobante cobrado,FK
+fact_cobros,"Cobros. Grano: un movimiento (cobro, detraccion o retencion).",cliente_key,int64,Cliente,FK
+fact_cobros,"Cobros. Grano: un movimiento (cobro, detraccion o retencion).",moneda_key,int64,Moneda,FK
+fact_cobros,"Cobros. Grano: un movimiento (cobro, detraccion o retencion).",forma_pago_key,int64,Medio de pago,FK
+fact_cobros,"Cobros. Grano: un movimiento (cobro, detraccion o retencion).",condicion_pago_key,int64,Condicion de pago del comprobante,FK
+fact_cobros,"Cobros. Grano: un movimiento (cobro, detraccion o retencion).",serie_doc,object,Serie del comprobante,
+fact_cobros,"Cobros. Grano: un movimiento (cobro, detraccion o retencion).",numero_doc,int64,Numero del comprobante,
+fact_cobros,"Cobros. Grano: un movimiento (cobro, detraccion o retencion).",tipo_movimiento,object,"COBRO, DETRACCION o RETENCION",
+fact_cobros,"Cobros. Grano: un movimiento (cobro, detraccion o retencion).",importe_doc,float64,Importe en la moneda del documento,
+fact_cobros,"Cobros. Grano: un movimiento (cobro, detraccion o retencion).",tipo_cambio,float64,Soles por dolar del dia del cobro,
+fact_cobros,"Cobros. Grano: un movimiento (cobro, detraccion o retencion).",importe_pen,float64,Importe en soles,
+fact_cobros,"Cobros. Grano: un movimiento (cobro, detraccion o retencion).",dias_desde_emision,int64,Dias entre emision y cobro,
+fact_cobros,"Cobros. Grano: un movimiento (cobro, detraccion o retencion).",dias_sobre_vencimiento,int64,Dias de retraso (negativo = pago anticipado),
+fact_cobros,"Cobros. Grano: un movimiento (cobro, detraccion o retencion).",pendiente_revision,bool,Cobro marcado para revision en la limpieza,
