@@ -12,7 +12,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-ORO = Path("..") / "oro" / "almacen.duckdb"
+# El almacen esta junto a esta carpeta (../oro) o, en la carpeta de correcciones, en la entrega de octubre
+ORO = next((r for r in (Path("..") / "oro" / "almacen.duckdb",
+                        Path("..") / ".." / "Entrega_2026-10-11" / "oro" / "almacen.duckdb") if r.exists()),
+           Path("..") / "oro" / "almacen.duckdb")
 RESULTADOS = Path("resultados")
 FIGURAS = RESULTADOS / "figuras"
 SEMILLA = 20261101  # semilla fija: mismos datos, mismos resultados

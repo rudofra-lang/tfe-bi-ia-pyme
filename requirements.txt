@@ -1,9 +1,9 @@
-pandas
-numpy
-duckdb
-pyarrow
-scikit-learn
-statsmodels
-mlxtend
-matplotlib
+pandas==2.3.3
+numpy==2.2.6
+duckdb==1.5.6
+pyarrow==25.0.1
+scikit-learn==1.7.2
+statsmodels==0.15.0
+mlxtend==0.23.4
+matplotlib==3.10.9
 ipykernel
